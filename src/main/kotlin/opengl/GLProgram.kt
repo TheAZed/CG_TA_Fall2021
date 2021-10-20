@@ -1,8 +1,9 @@
 package opengl
 
-import org.lwjgl.opengl.GL20
 import org.lwjgl.opengl.GL20.*
 
+
+fun Boolean.toInt() = if (this) 1 else 0
 
 class GLProgram(vertexName: String, fragmentName: String) {
     private val programID: Int = glCreateProgram()
@@ -33,23 +34,28 @@ class GLProgram(vertexName: String, fragmentName: String) {
         glUseProgram(programID)
     }
 
-    fun setVec3Float(data: FloatArray, name: String) {
-        val location = glGetUniformLocation(programID, name)
-        glUniform3fv(location, data)
-    }
+    fun setBool(name: String, value: Boolean) = glUniform1i(glGetUniformLocation(programID, name), value.toInt())
+
+    fun setInt(name: String, value: Int) = glUniform1i(glGetUniformLocation(programID, name), value)
+
+    fun setFloat(name: String, value: Float) = glUniform1f(glGetUniformLocation(programID, name), value)
+
+    fun setVec3Float(name: String, value: FloatArray) = glUniform3fv(glGetUniformLocation(programID, name), value)
+
+    fun setVec4Float(name: String, value: FloatArray) = glUniform4fv(glGetUniformLocation(programID, name), value)
 
     private fun checkCompileErrors(shader: Int, type: String) {
         val success = IntArray(1)
         if (type == "PROGRAM") {
             glGetProgramiv(shader, GL_LINK_STATUS, success)
             if (success[0] == GL_FALSE) {
-                val info = GL20.glGetProgramInfoLog(shader)
+                val info = glGetProgramInfoLog(shader)
                 System.err.println("Error compiling program\n$info\n------------------------------------------")
             }
         } else {
             glGetShaderiv(shader, GL_COMPILE_STATUS, success)
             if (success[0] == GL_FALSE) {
-                val info = GL20.glGetShaderInfoLog(shader)
+                val info = glGetShaderInfoLog(shader)
                 System.err.println("Error compiling shader of type $type\n$info\n------------------------------------------")
             }
         }

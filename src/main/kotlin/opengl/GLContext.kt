@@ -1,16 +1,10 @@
 package opengl
 
 import org.lwjgl.glfw.GLFW.*
-import org.lwjgl.glfw.GLFWCursorPosCallback
 import org.lwjgl.glfw.GLFWErrorCallback
 import org.lwjgl.glfw.GLFWKeyCallback
 import org.lwjgl.opengl.GL
-import org.lwjgl.opengl.GL11
-import org.lwjgl.opengl.GL33.*
-import org.lwjgl.stb.STBImageWrite
 import org.lwjgl.system.MemoryUtil.NULL
-import java.nio.ByteBuffer
-import java.nio.ByteOrder
 
 
 class GLContext private constructor(private val window: Long, val viewPort: ViewPort) {
