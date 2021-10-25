@@ -1,3 +1,4 @@
+import mutils.*
 import opengl.GLContext
 import opengl.GLProgram
 import org.lwjgl.opengl.GL11.*
@@ -25,7 +26,7 @@ fun main() {
 
     val indices = intArrayOf(
         0, 1, 2,
-        3, 0, 1,
+        0, 2, 3,
     )
 //    val color = floatArrayOf(1.0f, 0.5f, 0.0f)
 //

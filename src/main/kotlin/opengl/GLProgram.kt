@@ -38,6 +38,11 @@ class GLProgram(vertexName: String, fragmentName: String) {
         glUniform3fv(location, data)
     }
 
+    fun setMat4Float(data: List<Float>, name: String){
+        val location = glGetUniformLocation(programID, name)
+        glUniformMatrix4fv(location, false, data.toFloatArray())
+    }
+
     private fun checkCompileErrors(shader: Int, type: String) {
         val success = IntArray(1)
         if (type == "PROGRAM") {
