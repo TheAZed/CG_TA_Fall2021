@@ -30,6 +30,7 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test:1.5.31")
 
     implementation(platform("org.lwjgl:lwjgl-bom:$lwjglVersion"))
+    implementation("commons-io:commons-io:2.11.0")
 
     implementation("org.lwjgl", "lwjgl")
     implementation("org.lwjgl", "lwjgl-assimp")
