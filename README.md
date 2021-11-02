@@ -1,5 +1,6 @@
 # CG_TA_Fall2021
-Fall 2021 Computer Graphics Course's TA Class Repository
+Fall 2021 Computer Graphics Course's TA Class Repository 
+<br>
 You can see each session code on a different branch
 
 ## Class Materials
