@@ -18,7 +18,7 @@ class TextureUnit(imageResourceAddress: String) {
 
     init {
         val classLoader: ClassLoader = Thread.currentThread().contextClassLoader
-        val imageData = GLImage.loadImage(IOUtils.toByteArray(classLoader.getResourceAsStream(imageResourceAddress)!!))
+        val imageData = GLImage.loadImage(classLoader.getResourceAsStream(imageResourceAddress)!!.readAllBytes())
 
         imageWidth = imageData.width
         imageHeight = imageData.height

@@ -6,7 +6,7 @@ import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
 
-class GLImage internal constructor(val width: Int, val height: Int, val channelCnt: Int, val image: ByteBuffer?) {
+class GLImage private constructor(val width: Int, val height: Int, val channelCnt: Int, val image: ByteBuffer?) {
 
     companion object {
         fun loadImage(byteArr: ByteArray): GLImage {
