@@ -29,6 +29,7 @@ repositories {
 dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test:1.5.31")
 
+    implementation("commons-io:commons-io:2.11.0")
     implementation(platform("org.lwjgl:lwjgl-bom:$lwjglVersion"))
 
     implementation("org.lwjgl", "lwjgl")
